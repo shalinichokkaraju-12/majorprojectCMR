@@ -1,0 +1,12 @@
+body{
+    background: rgba(0, 0, 0, 0.7)url('https://c1.wallpaperflare.com/preview/294/960/948/university-student-graduation-photo-hats.jpg');
+    background-size: cover;
+   
+    background-blend-mode: darken;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+color: white;
+}
+
+section{
+    left: 80;
+}
