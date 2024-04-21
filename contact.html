@@ -1,14 +1,17 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="contact.css">
     <title>Document</title>
 </head>
+
 <body>
     <div class="container">
-        <form onsubmit="sendEmail(); reset(); return false;">
+        <form onsubmit="sendEmail(); return false;">
             <h3>GET IN TOUCH</h3>
             <input type="text" id="name" placeholder="Your Name" required>
             <input type="email" id="email" placeholder="Email Id" required>
@@ -17,25 +20,35 @@
             <button type="submit">send</button>
         </form>
     </div>
-    <script scr="https://smtpjs.com/v3/smt.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script>
-        function sendEmail(){
+        function sendEmail() {
             Email.send({
-    Host : "smtp.gmail.com",
-    Username : "babyshalinichokkaraju@gmail.com",
-    Password : "babyshalini12@chokkaraju",
-    To : 'gunali2712@gmail.com',
-    From : document.getElementById("email").value,
-    Subject : "New Contact Form Enquiry",
-    Body : "Name: "+ document.getElementById("name").value
-      +"<br> Email: "+ document.getElementById("email").value
-      +"<br> Phone no: "+ document.getElementById("phone").value
-      +"<br> Message: "+ document.getElementById("message").value
+                Host: "smtp.gmail.com",
+                Username: "babyshalinichokkaraju@gmail.com",
+                Password: "babyshalini12@chokkaraju",
+                To: 'gunali2712@gmail.com',
+                From: document.getElementById("email").value,
+                Subject: "New Contact Form Enquiry",
+                Body: "Name: " + document.getElementById("name").value +
+                    "<br> Email: " + document.getElementById("email").value +
+                    "<br> Phone no: " + document.getElementById("phone").value +
+                    "<br> Message: " + document.getElementById("message").value
+            }).then(
+                message => {
+                    alert("Message Sent Successfully");
+                    resetForm();
+                }
+            );
+        }
 
-}).then(
-  message => alert("Message Sent Succesfully")
-); 
+        function resetForm() {
+            document.getElementById("name").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("phone").value = "";
+            document.getElementById("message").value = "";
         }
     </script>
 </body>
+
 </html>
